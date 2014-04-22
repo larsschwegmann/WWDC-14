@@ -1,0 +1,25 @@
+//
+//  Prefix header
+//
+//  The contents of this file are implicitly included at the beginning of every source file.
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+//Returns a random number between 0.0 and 1.0 (inclusive).
+#define RANDOM_FLOAT() ((float)arc4random()/0xFFFFFFFFu)
+
+//Returns a random number between 0 and n (inclusive).
+#define RANDOM_INT(n) (arc4random() % (n + 1))
+
+//Returns a boolean indicating whether the Device is an iPhone 5/5S with a 4 inch screen
+#define IS_IPHONE5 (([[UIScreen mainScreen] bounds].size.height-568)?NO:YES)
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
